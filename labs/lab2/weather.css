@@ -1,0 +1,38 @@
+body {
+	height: 100vh;
+}
+
+#main-content > div {
+	border-radius: 10px;
+}
+
+.row {
+	background: white;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	margin-top: 0;
+}
+
+#weather-wrapper {
+	font-size: 2vh;
+}
+
+#weather-primary {
+	font-size: 3vh;
+}
+
+#weather-primary > span {
+	display: block;
+}
+
+#weather-wrapper > div {
+	text-align: center;
+}
+
+h3 {
+	text-align: left;
+}

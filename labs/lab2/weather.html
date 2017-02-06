@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Weather Data - Websci Lab 2</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="weather.css">
+	</head>
+	
+	<body>
+		<div id="main-content" class="container">
+			<h1>Weather Data - Websci Lab 2</h1>
+			
+			<div id="weather-wrapper" class="container">
+				<h2>Weather</h2>
+				
+				<div class="row">
+					<h3>Current</h3>
+				
+					<div id="weather-primary" class="col-md-4">
+						<img id="weather-icon"/>
+						<span id="temperature"></span>
+						<span id="weather-main"></span>
+						<span id="weather-description"></span>
+					</div>
+
+					<div class="col-md-4">
+						<span id="humidity"></span>
+						<span id="wind"></span>
+					</div>
+				</div>
+				
+				<div class="row">
+					<h3>Forecast</h3>
+				</div>
+			</div>
+			
+			<div id="location-wrapper" class="container">
+				<h2>Location</h2>
+			
+				<div class="row">
+					<div class="form-group">
+						<label for="city">City:</label>
+						<input id="city" readonly>
+					</div>
+
+					<div class="form-group">
+						<label for="latitude">Latitude:</label>
+						<input id="latitude" readonly>
+					</div>
+
+					<div class="form-group">
+						<label for="longitude">Longitude:</label>
+						<input id="longitude" readonly>
+					</div>
+
+					<button onclick="setLocation()" class="btn btn-primary">Set My Location</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<!-- jQuery -->
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+	
+	<!-- Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<script src="weather.js"></script>
+</html>

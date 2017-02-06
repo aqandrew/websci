@@ -1,0 +1,88 @@
+body {
+	background: #ddd;
+}
+
+#tweets, #hashtag-container {
+	border-radius: 10px;
+}
+
+#tweets {
+	overflow-y: scroll;
+	height: 360px;
+}
+
+#main-content > div > div {
+	background: #eee;
+	padding: 10px;
+}
+
+.tweet {
+	background: #fff;
+	margin: 6px auto;
+	border-radius: 4px;
+}
+
+.avatar-container {
+	height: 60px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.avatar {
+	margin-top: 6px;
+}
+
+.tweet-body {
+	padding: 10px;
+}
+
+.animated {
+	animation-duration: 0.5s;
+}
+
+.fade-in {
+	animation-name: fade-in;
+}
+
+.slide-down {
+	animation-name: slide-down;
+}
+
+.fade-out {
+	animation-name: fade-out;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translate(0, -60px);
+	}
+	
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slide-down {
+	0% {
+		transform: translate(0, -60px);
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+		transform: translate(0, -60px);
+	}
+	
+	100% {
+		opacity: 0;
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+	body {
+		font-size: 2vh;
+	}
+}
