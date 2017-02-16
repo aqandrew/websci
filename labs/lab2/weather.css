@@ -1,5 +1,6 @@
 body {
 	height: 100vh;
+	font-weight: 300;
 }
 
 #main-content > div {
@@ -21,12 +22,28 @@ h3 {
 	font-size: 2vh;
 }
 
+#forecast {
+	height: 200px;
+	width: 100%;
+	overflow: auto;
+	white-space: nowrap;
+}
+
 #weather-primary {
 	font-size: 3vh;
 }
 
-#weather-primary > span {
+#weather-primary > span, .forecast-card > * {
 	display: block;
+}
+
+#weather-current {
+	background: #ddd;
+	border-radius: 8px;
+}
+
+#weather-current .form-group {
+	margin-bottom: 0;
 }
 
 #weather-wrapper > div {
@@ -35,4 +52,24 @@ h3 {
 
 h3 {
 	text-align: left;
+}
+
+.forecast-card {
+	background: #eee;
+	border-radius: 6px;
+	display: inline-block;
+	height: 100%;
+	margin: 0 4px;
+	padding: 6px;
+	animation: forecast-slide 10s linear infinite;
+}
+
+@keyframes forecast-slide {	
+	100% {
+		transform: translate(-50vw, 0);
+	}
+}
+
+.forecast-card > * {
+	margin: 0 auto;
 }

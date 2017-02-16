@@ -11,27 +11,38 @@
 		<div id="main-content" class="container">
 			<h1>Weather Data - Websci Lab 2</h1>
 			
-			<div id="weather-wrapper" class="container">
+			<div id="weather-wrapper">
 				<h2>Weather</h2>
-				
+			
 				<div class="row">
-					<h3>Current</h3>
-				
-					<div id="weather-primary" class="col-md-4">
-						<img id="weather-icon"/>
-						<span id="temperature"></span>
-						<span id="weather-main"></span>
-						<span id="weather-description"></span>
-					</div>
-
 					<div class="col-md-4">
-						<span id="humidity"></span>
-						<span id="wind"></span>
+						<h3>Current: <span id="todays-date"></span></h3>
+						
+						<div id="weather-current">
+							<div id="weather-primary">
+								<img id="weather-icon"/>
+								<span id="temperature"></span>
+								<span id="weather-main"></span>
+								<span id="weather-description"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="humidity">Humidity:</label>
+								<span id="humidity"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="wind">Wind:</label>
+								<span id="wind"></span>
+							</div>
+						</div>
 					</div>
-				</div>
-				
-				<div class="row">
-					<h3>Forecast</h3>
+					
+					<div class="col-md-8">
+						<h3>Forecast</h3>
+						<div id="forecast" class="row">
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -54,7 +65,7 @@
 						<input id="longitude" readonly>
 					</div>
 
-					<button onclick="setLocation()" class="btn btn-primary">Set My Location</button>
+					<button onclick="initWeatherApp()" class="btn btn-primary">Set My Location</button>
 				</div>
 			</div>
 		</div>
