@@ -1,0 +1,42 @@
+html {
+  background: #111;
+}
+
+body {
+  background: linear-gradient(#333, #111);
+  background-size: auto 100vh;
+  color: #eee;
+}
+
+a {
+  color: #eee;
+}
+
+#traxx {
+  height: 80vh;
+  overflow-y: scroll;
+  columns: 2 400px;
+  column-gap: 2em;
+  margin-top: 2em;
+}
+
+.track-wrapper {
+  overflow-x: scroll;
+  background: #444;
+  margin: 0 0 10px 0;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+h4, h5, h6 {
+  margin: 0;
+  display: inline;
+  float: left;
+  clear: left;
+}
+
+.album-art {
+  display: inline;
+  float: right;
+  clear: none;
+}
