@@ -1,0 +1,14 @@
+{
+  "name": "quiz1server",
+  "version": "1.0.0",
+  "description": "Serves a simple HTML page which gives weather information for a specified zipcode",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Aquino (aquina)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}

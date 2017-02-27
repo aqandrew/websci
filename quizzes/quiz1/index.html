@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="quiz1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebSci Quiz 1</title>
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="quiz1.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="quiz1.css">
+</head>
+<body ng-controller="Quiz1Controller">
+  <div class="container">
+    <h1>{{ appName }}</h1>
+
+    <form ng-submit="getWeatherInfo()">
+      <div class="row">
+        <div class="input-group form-group col-md-6">
+          <input type="number" ng-model="zipcode" min="0" placeholder="Enter zipcode" name="zipcode" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Get Weather Info</button>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-success" onclick="history.go(0)" type="button">Refresh Page</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <p ng-class="{
+        freezing: localTemp <= 0,
+        cold: localTemp > 0 && localTemp <= 10,
+        warm: localTemp > 10 && localTemp <= 25,
+        hot: localTemp > 25
+      }">{{ weatherInfo }}</p>
+    </div>
+  </div>
+</body>
+</html>
