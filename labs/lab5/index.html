@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="lab5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebSci Lab 5</title>
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="lab5.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-controller="Lab5Controller">
+  <div class="container">
+    <h1>{{ appName }}</h1>
+
+    <form method="post" action="getTweets">
+      <div class="row">
+        <div class="input-group form-group col-md-6">
+          <input type="text" ng-model="query" placeholder="Search for tweets" name="query" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Go</button>
+          </span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="tweet-num">
+            Number of tweets
+          </label>
+          <input type="number" ng-value="tweetNum" ng-model="tweetNum" min="1" max="100" name="tweetNum" id="tweet-num" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
