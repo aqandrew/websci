@@ -22,6 +22,7 @@ const coordinateNe = {
   latitude: -73.67,
   longitude: 42.73
 };
+var tweets = [];
 
 // Set root folder
 app.use(express.static(__dirname));
@@ -38,15 +39,28 @@ app.post('/getTweets', (req, res) => {
 
   authorizeApp(query, tweetNum);
 
-  res.send(successMessage(tweetNum, query, outputFilename));
+  res.send(successMessage(tweetNum, query));
 });
 
-function successMessage(tweetNum, query, outputFilename) {
+app.post('/exportTweets', (req, res) => {
+  console.log('exportTweets request: ' + JSON.stringify(req.body));
+  let format = Object.getOwnPropertyNames(req.body)[0];
+
+  fs.writeFile(outputFilename, JSON.stringify(tweets, null, 2), (err) => {
+    if (err) {
+      throw err;
+    }
+  });
+
+  res.send('Wrote ' + tweets.length + ' tweets to ' + outputFilename + '.');
+});
+
+function successMessage(tweetNum, query) {
   if (!query) {
-    return 'Wrote ' + tweetNum + ' tweets(s) from RPI in ' + outputFilename + '.';
+    return 'Found ' + tweetNum + ' tweets(s) from RPI.';
   }
 
-  return 'Wrote ' + tweetNum + ' tweet(s) related to "' + query + '" in ' + outputFilename + '.'
+  return 'Found ' + tweetNum + ' tweet(s) related to "' + query + '".'
 }
 
 function authorizeApp(query, tweetNum) {
@@ -111,13 +125,7 @@ function getTweets(accessToken, query, tweetNum) {
     json: true,
     qs: tweetSearchOptions
   }, (e, r, b) => {
-    fs.writeFile(outputFilename, JSON.stringify(b.statuses, null, 2), (err) => {
-      if (err) {
-        throw err;
-      }
-
-      console.log(successMessage(tweetNum, query, outputFilename));
-    });
+    tweets = b.statuses;
   });
 }
 

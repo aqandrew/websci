@@ -1,5 +1,7 @@
 # Lab 6
 
+It's a better practice to place the CSV conversion code within the Node server, as the task relates more closely to interacting with the filesystem than showing changes to the user.
+
 ## References
 http://stackoverflow.com/questions/24193102/node-js-express-making-post-request-without-redirecting-from-current-page
 
