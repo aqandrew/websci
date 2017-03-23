@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WebSci Lab 5</title>
+  <title>WebSci Lab 6</title>
 
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -36,4 +36,15 @@
     </form>
   </div>
 </body>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+  $('form').submit(event => {
+    console.log(event);
+    event.preventDefault();
+  });
+</script>
+
 </html>

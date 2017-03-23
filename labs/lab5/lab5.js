@@ -2,7 +2,7 @@ angular.module('lab5', [])
   .controller('Lab5Controller', Lab5Controller);
 
 function Lab5Controller($scope, $http) {
-  $scope.appName = 'Lab 5';
+  $scope.appName = 'Lab 6';
   $scope.query = '';
   $scope.tweetNum = 5;
 }
