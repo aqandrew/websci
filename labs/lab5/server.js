@@ -9,11 +9,12 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 const request = require('request');
+const csvjson = require('csvjson');
 
 const port = 3000;
 const consumerKey = 'y4Ops0GFlV7nr2667A01Y5ljH';
 const consumerSecret = 'wuXIqfwEAlgtZO28vK9KGDGfWqXackE2y3uMTuBLzP8fcui0aM';
-const outputFilename = 'aquina-tweets.json';
+const outputFilename = 'aquina-tweets';
 const coordinateSw = {
   latitude: -73.68,
   longitude: 42.72
@@ -45,14 +46,20 @@ app.post('/getTweets', (req, res) => {
 app.post('/exportTweets', (req, res) => {
   console.log('exportTweets request: ' + JSON.stringify(req.body));
   let format = Object.getOwnPropertyNames(req.body)[0];
+  let csvOptions = {
+    delimiter: ',',
+    wrap: false
+  };
+  let writeData = format == 'JSON' ? JSON.stringify(tweets, null, 2) : csvjson.toCSV(tweets, csvOptions);
+  let newOutputFilename = outputFilename + '.' + format.toLowerCase();
 
-  fs.writeFile(outputFilename, JSON.stringify(tweets, null, 2), (err) => {
+  fs.writeFile(newOutputFilename, writeData, (err) => {
     if (err) {
       throw err;
     }
   });
 
-  res.send('Wrote ' + tweets.length + ' tweets to ' + outputFilename + '.');
+  res.send('Wrote ' + tweets.length + ' tweets to ' + newOutputFilename + '.');
 });
 
 function successMessage(tweetNum, query) {
