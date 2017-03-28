@@ -6,6 +6,10 @@ function Lab5Controller($scope, $http) {
   $scope.query = '';
   $scope.tweetNum = 5;
   $scope.formats = ['JSON', 'CSV'];
+  $scope.loadResult = '';
+  $scope.exportResult = '';
+  $scope.tweets = [];
+  $scope.tweetString = '';
 
   $('form').submit(event => {
     event.preventDefault(); // Prevent page redirect on submit
@@ -17,6 +21,11 @@ function Lab5Controller($scope, $http) {
 
     $.post('/getTweets', postData, response => {
       console.log(response);
+      $scope.loadResult = response.message;
+      $scope.exportResult = '';
+      $scope.tweets = response.tweets;
+      $scope.tweetString = JSON.stringify($scope.tweets, null, 4);
+      $scope.$apply();
     });
   });
 
@@ -24,7 +33,9 @@ function Lab5Controller($scope, $http) {
     let format = $('#export-format').val();
 
     $.post('/exportTweets', format, response => {
-      console.log(response);
+      $scope.exportResult = response;
+      $scope.loadResult = '';
+      $scope.$apply();
     });
   };
 }

@@ -12,6 +12,14 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+  <style>
+    pre {
+      height: 30vh;
+    }
+  </style>
 </head>
 <body ng-controller="Lab5Controller">
   <div class="container">
@@ -19,11 +27,18 @@
 
     <form method="post" action="getTweets">
       <div class="row">
-        <div class="input-group form-group col-md-4">
-          <input type="text" ng-model="query" placeholder="Search for tweets" name="query" class="form-control">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit">Load</button>
-          </span>
+        <div class="form-group col-md-4">
+          <label for="query">
+            Query
+          </label>
+          <div class="input-group">
+            <input type="text" ng-model="query" placeholder="Search for tweets" name="query" class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Load</button>
+            </span>
+          </div>
+
+          <p>{{ loadResult }}</p>
         </div>
 
         <div class="form-group col-md-4">
@@ -32,15 +47,31 @@
           </label>
           <input type="number" ng-value="tweetNum" ng-model="tweetNum" min="1" max="100" name="tweetNum" id="tweet-num" class="form-control">
         </div>
-
-        <div class="form-group col-md-4">
-          <select name="export-format" id="export-format">
-            <option ng-repeat="format in formats" value="{{ format }}">{{ format }}</option>
-          </select>
-          <button ng-click="exportTweets()" class="btn btn-success" type="button">Export</button>
-        </div>
       </div>
     </form>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Tweets</h2>
+        <pre>{{ (tweets.length != 0) ? tweetString : 'No tweets to show.' }}</pre>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="export-format">
+          Format
+        </label>
+        <select name="export-format" id="export-format" class="form-control">
+          <option ng-repeat="format in formats" value="{{ format }}">{{ format }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-12">
+        <button ng-click="exportTweets()" ng-disabled="tweets.length == 0" class="btn btn-success" type="button">Export</button>
+        <p>{{ exportResult }}</p>
+      </div>
+    </div>
   </div>
 </body>
 

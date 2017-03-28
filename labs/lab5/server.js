@@ -38,9 +38,15 @@ app.post('/getTweets', (req, res) => {
   let query = req.body.query;
   let tweetNum = req.body.tweetNum;
 
-  authorizeApp(query, tweetNum);
-
-  res.send(successMessage(tweetNum, query));
+  authorizeApp(query, tweetNum).then(fulfilledVal => {
+    console.log(fulfilledVal);
+    res.json({
+      message: successMessage(tweetNum, query),
+      tweets: tweets
+    });
+  }, rejectedVal => {
+    console.log(rejectedVal);
+  });
 });
 
 app.post('/exportTweets', (req, res) => {
@@ -53,13 +59,18 @@ app.post('/exportTweets', (req, res) => {
   let writeData = format == 'JSON' ? JSON.stringify(tweets, null, 2) : csvjson.toCSV(tweets, csvOptions);
   let newOutputFilename = outputFilename + '.' + format.toLowerCase();
 
+  let fileExists = fs.existsSync(newOutputFilename);
+
   fs.writeFile(newOutputFilename, writeData, (err) => {
     if (err) {
       throw err;
     }
   });
 
-  res.send('Wrote ' + tweets.length + ' tweets to ' + newOutputFilename + '.');
+  let wroteMessage = !fileExists ? 'Wrote ' + tweets.length + ' tweet(s) to ' + newOutputFilename + '.' :
+    'Overwrote ' + newOutputFilename + ' with ' + tweets.length + ' tweet(s).';
+
+  res.send(wroteMessage);
 });
 
 function successMessage(tweetNum, query) {
@@ -106,6 +117,15 @@ function authorizeApp(query, tweetNum) {
   let body = 'grant_type=client_credentials';
   authRequest.write(body);
   authRequest.end();
+
+  return new Promise((resolve, reject) => {
+    if (tweets.length != 0) {
+      resolve(tweets)
+    }
+    else {
+      reject(new Error('tweets array is empty!'));
+    }
+  });
 }
 
 function getTweets(accessToken, query, tweetNum) {
