@@ -1,1 +1,519 @@
-[]
+[
+  {
+    "created_at": "Tue Mar 28 00:38:20 +0000 2017",
+    "id": 846521802637688800,
+    "id_str": "846521802637688832",
+    "text": "juro que nunca mais mando curious cat pra ninguém",
+    "truncated": false,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": []
+    },
+    "metadata": {
+      "iso_language_code": "pt",
+      "result_type": "recent"
+    },
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 4129672318,
+      "id_str": "4129672318",
+      "name": "kellrn",
+      "screen_name": "kellndiniz",
+      "location": "Itaúna, Minas Gerais",
+      "description": "minha vida é como um carro e eu não sei dirigir",
+      "url": "https://t.co/ToyOSD4SZu",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/ToyOSD4SZu",
+              "expanded_url": "http://triplost.tumblr.com",
+              "display_url": "triplost.tumblr.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 326,
+      "friends_count": 434,
+      "listed_count": 1,
+      "created_at": "Fri Nov 06 21:47:01 +0000 2015",
+      "favourites_count": 3287,
+      "utc_offset": -10800,
+      "time_zone": "Brasilia",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 18345,
+      "lang": "pt",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/843279215118225408/Bc7r6rV1_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/843279215118225408/Bc7r6rV1_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/4129672318/1483849267",
+      "profile_link_color": "E81C4F",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "000000",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "has_extended_profile": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "pt"
+  },
+  {
+    "created_at": "Tue Mar 28 00:38:19 +0000 2017",
+    "id": 846521802532663300,
+    "id_str": "846521802532663297",
+    "text": "@lifewithcatstv I think that cat ate some. 😋",
+    "truncated": false,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "lifewithcatstv",
+          "name": "Life With Cats",
+          "id": 356396164,
+          "id_str": "356396164",
+          "indices": [
+            0,
+            15
+          ]
+        }
+      ],
+      "urls": []
+    },
+    "metadata": {
+      "iso_language_code": "en",
+      "result_type": "recent"
+    },
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "in_reply_to_status_id": 846512170703732700,
+    "in_reply_to_status_id_str": "846512170703732737",
+    "in_reply_to_user_id": 356396164,
+    "in_reply_to_user_id_str": "356396164",
+    "in_reply_to_screen_name": "lifewithcatstv",
+    "user": {
+      "id": 51304665,
+      "id_str": "51304665",
+      "name": "Pam",
+      "screen_name": "pamisme",
+      "location": "",
+      "description": "Love my niece, the Beatles, Orphan Black, old movies, reading, my cats  Charlie, Missy, and Baby.",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 48,
+      "friends_count": 29,
+      "listed_count": 3,
+      "created_at": "Sat Jun 27 01:33:06 +0000 2009",
+      "favourites_count": 558,
+      "utc_offset": -25200,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 8164,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/573227686211940352/dWXLyDsR.jpeg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/573227686211940352/dWXLyDsR.jpeg",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/3757548738/1d2c3858b238e1b224dd04536207c6c7_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/3757548738/1d2c3858b238e1b224dd04536207c6c7_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/51304665/1401597624",
+      "profile_link_color": "1B95E0",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Tue Mar 28 00:38:19 +0000 2017",
+    "id": 846521801878503400,
+    "id_str": "846521801878503424",
+    "text": "Cat Befriends A Bearded Dragon And Now They’re Inseparable:https://t.co/hLMwGhiAgR https://t.co/wn5mUQiU4e",
+    "truncated": false,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "https://t.co/hLMwGhiAgR",
+          "expanded_url": "http://ift.tt/2obaoXd",
+          "display_url": "ift.tt/2obaoXd",
+          "indices": [
+            59,
+            82
+          ]
+        }
+      ],
+      "media": [
+        {
+          "id": 846521800041398300,
+          "id_str": "846521800041398274",
+          "indices": [
+            83,
+            106
+          ],
+          "media_url": "http://pbs.twimg.com/media/C79zF5IXgAIw5gf.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/C79zF5IXgAIw5gf.jpg",
+          "url": "https://t.co/wn5mUQiU4e",
+          "display_url": "pic.twitter.com/wn5mUQiU4e",
+          "expanded_url": "https://twitter.com/JolqBenavides/status/846521801878503424/photo/1",
+          "type": "photo",
+          "sizes": {
+            "large": {
+              "w": 1024,
+              "h": 576,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1024,
+              "h": 576,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 383,
+              "resize": "fit"
+            },
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 846521800041398300,
+          "id_str": "846521800041398274",
+          "indices": [
+            83,
+            106
+          ],
+          "media_url": "http://pbs.twimg.com/media/C79zF5IXgAIw5gf.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/C79zF5IXgAIw5gf.jpg",
+          "url": "https://t.co/wn5mUQiU4e",
+          "display_url": "pic.twitter.com/wn5mUQiU4e",
+          "expanded_url": "https://twitter.com/JolqBenavides/status/846521801878503424/photo/1",
+          "type": "photo",
+          "sizes": {
+            "large": {
+              "w": 1024,
+              "h": 576,
+              "resize": "fit"
+            },
+            "medium": {
+              "w": 1024,
+              "h": 576,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 383,
+              "resize": "fit"
+            },
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            }
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "iso_language_code": "en",
+      "result_type": "recent"
+    },
+    "source": "<a href=\"https://ifttt.com\" rel=\"nofollow\">IFTTT</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 2807384355,
+      "id_str": "2807384355",
+      "name": "Jolq Benavides",
+      "screen_name": "JolqBenavides",
+      "location": "Colombia",
+      "description": "Que piedra tan hijueputa!!!",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1137,
+      "friends_count": 108,
+      "listed_count": 216,
+      "created_at": "Sun Oct 05 11:08:05 +0000 2014",
+      "favourites_count": 560,
+      "utc_offset": -18000,
+      "time_zone": "Bogota",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 444474,
+      "lang": "es",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/531717654784929792/du1zC6N1.jpeg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/531717654784929792/du1zC6N1.jpeg",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/518719553346347008/LNv9hVMb_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/518719553346347008/LNv9hVMb_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/2807384355/1412507366",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Tue Mar 28 00:38:19 +0000 2017",
+    "id": 846521801429565400,
+    "id_str": "846521801429565440",
+    "text": "素人 可愛い アヒル口",
+    "truncated": false,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": []
+    },
+    "metadata": {
+      "iso_language_code": "ja",
+      "result_type": "recent"
+    },
+    "source": "<a href=\"http://theworld09.com/\" rel=\"nofollow\">TheWorld⠀</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 34947863,
+      "id_str": "34947863",
+      "name": "セルフ二重整形",
+      "screen_name": "surreal_cat",
+      "location": "ここは北端",
+      "description": "三十路？いえいえまだ二十路です。ビールはサッポロ。アイスはスーパーカップ。",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 203,
+      "friends_count": 229,
+      "listed_count": 22,
+      "created_at": "Fri Apr 24 15:06:40 +0000 2009",
+      "favourites_count": 310,
+      "utc_offset": 32400,
+      "time_zone": "Tokyo",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 26972,
+      "lang": "ja",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/181139546/IMG_8110.JPG",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/181139546/IMG_8110.JPG",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1894204298/icon6624465046434512622IMG_0169_normal.JPG",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1894204298/icon6624465046434512622IMG_0169_normal.JPG",
+      "profile_link_color": "755721",
+      "profile_sidebar_border_color": "EBE8DF",
+      "profile_sidebar_fill_color": "C7B293",
+      "profile_text_color": "261806",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "ja"
+  },
+  {
+    "created_at": "Tue Mar 28 00:38:19 +0000 2017",
+    "id": 846521800527876100,
+    "id_str": "846521800527876100",
+    "text": "Cat hasn't figured out that she can't get through the glass door",
+    "truncated": false,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": []
+    },
+    "metadata": {
+      "iso_language_code": "en",
+      "result_type": "recent"
+    },
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 2384273240,
+      "id_str": "2384273240",
+      "name": "paige carter",
+      "screen_name": "paigecarter522",
+      "location": "snapchat: athlete01",
+      "description": "sassy mom",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 788,
+      "friends_count": 871,
+      "listed_count": 3,
+      "created_at": "Tue Mar 11 22:27:27 +0000 2014",
+      "favourites_count": 13160,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 5603,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/834241482735353857/KXxL4saC_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/834241482735353857/KXxL4saC_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/2384273240/1488469166",
+      "profile_link_color": "89C9FA",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "000000",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "has_extended_profile": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  }
+]

@@ -23,7 +23,7 @@
 </head>
 <body ng-controller="Lab5Controller">
   <div class="container">
-    <h1>{{ appName }}</h1>
+    <h1>{{ appName }} - {{ appDescription }}</h1>
 
     <form method="post" action="getTweets">
       <div class="row">
@@ -54,6 +54,9 @@
       <div class="col-md-12">
         <h2>Tweets</h2>
         <pre>{{ (tweets.length != 0) ? tweetString : 'No tweets to show.' }}</pre>
+        <div class="form-group">
+          <button ng-click="displayTweets()" class="btn btn-primary">Display tweets</button>
+        </div>
       </div>
     </div>
 
@@ -70,6 +73,7 @@
       <div class="col-md-12">
         <button ng-click="exportTweets()" ng-disabled="tweets.length == 0" class="btn btn-success" type="button">Export</button>
         <p>{{ exportResult }}</p>
+        <button ng-click="resetPage()" class="btn btn-danger">Reset page</button>
       </div>
     </div>
   </div>

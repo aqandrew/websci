@@ -1,3 +1,12 @@
+# Lab 7
+
+## References
+
+## Observations
+
+## Questions
+
+
 # Lab 6
 
 It's a better practice to place the CSV conversion code within the Node server, as the task relates more closely to interacting with the filesystem than showing changes to the user.

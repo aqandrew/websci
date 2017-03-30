@@ -2,13 +2,14 @@ angular.module('lab5', [])
   .controller('Lab5Controller', Lab5Controller);
 
 function Lab5Controller($scope, $http) {
-  $scope.appName = 'Lab 6';
+  $scope.appName = 'Lab 7';
+  $scope.appDescription = 'node.js, MongoDB, and Twitter API';
   $scope.query = '';
   $scope.tweetNum = 5;
-  $scope.formats = ['JSON', 'CSV'];
+  $scope.formats = ['JSON', 'CSV', 'XML'];
   $scope.loadResult = '';
   $scope.exportResult = '';
-  $scope.tweets = [];
+  $scope.tweets = []; // TODO build MongoDB of tweets instead of this
   $scope.tweetString = '';
 
   $('form').submit(event => {
@@ -30,6 +31,7 @@ function Lab5Controller($scope, $http) {
   });
 
   $scope.exportTweets = function() {
+    // TODO export from MongoDB
     let format = $('#export-format').val();
 
     $.post('/exportTweets', format, response => {
@@ -38,6 +40,14 @@ function Lab5Controller($scope, $http) {
       $scope.$apply();
     });
   };
+
+  $scope.displayTweets = function() {
+    alert('TODO display tweets');
+  }
+
+  $scope.resetPage = function() {
+    alert('TODO reset page');
+  }
 }
 
 Lab5Controller.$inject = ['$scope', '$http'];
