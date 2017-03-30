@@ -73,7 +73,7 @@
       <div class="col-md-12">
         <button ng-click="exportTweets()" ng-disabled="tweets.length == 0" class="btn btn-success" type="button">Export</button>
         <p>{{ exportResult }}</p>
-        <button ng-click="resetPage()" class="btn btn-danger">Reset page</button>
+        <button ng-click="resetPage()" ng-disabled="!formChanged" class="btn btn-danger">Reset page</button>
       </div>
     </div>
   </div>

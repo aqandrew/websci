@@ -33,15 +33,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
 
 app.post('/getTweets', (req, res) => {
-  console.log('getTweets request: ' + JSON.stringify(req.body));
+  // console.log('getTweets request: ' + JSON.stringify(req.body));
 
   let query = req.body.query;
   let tweetNum = req.body.tweetNum;
 
   authorizeApp(query, tweetNum).then(fulfilledVal => {
-    console.log(fulfilledVal);
+    // console.log(fulfilledVal);
     res.json({
-      message: successMessage(tweetNum, query),
+      message: loadMessage(tweetNum, query),
       tweets: tweets
     });
   }, rejectedVal => {
@@ -73,7 +73,7 @@ app.post('/exportTweets', (req, res) => {
   res.send(wroteMessage);
 });
 
-function successMessage(tweetNum, query) {
+function loadMessage(tweetNum, query) {
   if (!query) {
     return 'Found ' + tweetNum + ' tweets(s) from RPI.';
   }
@@ -102,7 +102,7 @@ function authorizeApp(query, tweetNum) {
     res.setEncoding('utf8');
 
     res.on('data', (chunk) => {
-      console.log(`BODY: ${chunk}`);
+      // console.log(`BODY: ${chunk}`);
       let accessToken = JSON.parse(chunk).access_token;
       console.log('Received access token: ' + accessToken);
       getTweets(accessToken, query, tweetNum);

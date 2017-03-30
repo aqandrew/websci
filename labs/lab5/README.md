@@ -1,6 +1,7 @@
 # Lab 7
 
 ## References
+https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watchGroup
 
 ## Observations
 

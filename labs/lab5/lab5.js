@@ -4,13 +4,25 @@ angular.module('lab5', [])
 function Lab5Controller($scope, $http) {
   $scope.appName = 'Lab 7';
   $scope.appDescription = 'node.js, MongoDB, and Twitter API';
-  $scope.query = '';
-  $scope.tweetNum = 5;
+  const emptyString = '';
+  const tweetNumDefault = 5;
+  $scope.query = emptyString;
+  $scope.tweetNum = tweetNumDefault;
   $scope.formats = ['JSON', 'CSV', 'XML'];
-  $scope.loadResult = '';
-  $scope.exportResult = '';
+  $scope.loadResult = emptyString;
+  $scope.exportResult = emptyString;
   $scope.tweets = []; // TODO build MongoDB of tweets instead of this
-  $scope.tweetString = '';
+  $scope.tweetString = emptyString;
+  $scope.formChanged = false;
+
+  $scope.$watchGroup(['query', 'tweetNum'], (newValues, oldValues) => {
+    if (newValues[0] || (newValues[1] != undefined && newValues[1] != tweetNumDefault)) {
+      $scope.formChanged = true;
+    }
+    else {
+      $scope.formChanged = false;
+    }
+  });
 
   $('form').submit(event => {
     event.preventDefault(); // Prevent page redirect on submit
@@ -47,6 +59,7 @@ function Lab5Controller($scope, $http) {
 
   $scope.resetPage = function() {
     alert('TODO reset page');
+    $scope.formChanged = false;
   }
 }
 
