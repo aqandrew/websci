@@ -19,6 +19,10 @@
     pre {
       height: 30vh;
     }
+
+    .alert {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body ng-controller="Lab5Controller">
@@ -37,8 +41,6 @@
               <button class="btn btn-primary" type="submit">Build tweet database</button>
             </span>
           </div>
-
-          <p>{{ loadResult }}</p>
         </div>
 
         <div class="form-group col-md-4">
@@ -56,7 +58,7 @@
         <!-- TODO additional styling -->
         <pre>{{ (tweets.length != 0) ? tweetString : 'No tweets to show.' }}</pre>
         <div class="form-group">
-          <button ng-click="displayTweets()" class="btn btn-primary">Read tweets</button>
+          <button ng-click="displayTweets()" class="btn btn-info">Read tweets</button>
         </div>
       </div>
     </div>
@@ -73,8 +75,16 @@
 
       <div class="col-md-12">
         <button ng-click="exportTweets()" ng-disabled="tweets.length == 0" class="btn btn-success" type="button">Export</button>
-        <p>{{ exportResult }}</p>
-        <button ng-click="init()" ng-disabled="!formChanged" class="btn btn-danger">Reset page</button>
+        <button ng-click="resetPage()" ng-disabled="!formChanged" class="btn btn-danger">Reset page</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="alert collapse" role="alert">
+        <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <span id="alert-text">foo</span>
       </div>
     </div>
   </div>

@@ -4,18 +4,39 @@ angular.module('lab5', [])
 function Lab5Controller($scope, $http) {
   const emptyString = '';
   const tweetNumDefault = 5;
-  
+  const alertTimeout = 2000;
+  const alertClasses = 'alert collapse';
+
+  let setAlertTimeout = () => {
+    setTimeout(hideAlerts, alertTimeout);
+  }
+
+  let hideAlerts = () => {
+    $('.alert').hide('fade');
+  };
+
+  let showAlert = () => {
+    $('.alert').show('fade');
+    setAlertTimeout();
+  };
+
+  let changeAlert = function (text, alertClass) {
+    $('#alert-text').text(text);
+    $('.alert').removeClass()
+      .addClass(alertClasses)
+      .addClass(alertClass);
+  };
+
   $scope.init = function () {
     $scope.appName = 'Lab 7';
     $scope.appDescription = 'node.js, MongoDB, and Twitter API';
     $scope.query = emptyString;
     $scope.tweetNum = tweetNumDefault;
     $scope.formats = ['JSON', 'CSV', 'XML'];
-    $scope.loadResult = emptyString;
-    $scope.exportResult = emptyString;
     $scope.tweets = [];
     $scope.tweetString = emptyString;
     $scope.formChanged = false;
+    hideAlerts();
   }
 
   $scope.init();
@@ -39,9 +60,8 @@ function Lab5Controller($scope, $http) {
 
     $.post('/getTweets', postData, response => {
       console.log(response);
-      $scope.loadResult = response.message;
-      $scope.exportResult = emptyString;
-      $scope.$apply();
+      changeAlert(response.message, 'alert-info');
+      showAlert();
     });
   });
 
@@ -49,9 +69,8 @@ function Lab5Controller($scope, $http) {
     let format = $('#export-format').val();
 
     $.post('/exportTweets', format, response => {
-      $scope.exportResult = response;
-      $scope.loadResult = emptyString;
-      $scope.$apply();
+      changeAlert(response, 'alert-success');
+      showAlert();
     });
   };
 
@@ -60,11 +79,19 @@ function Lab5Controller($scope, $http) {
       console.log(data);
       $scope.tweets = data;
       $scope.tweetString = JSON.stringify($scope.tweets, null, 4);
-      $scope.loadResult = emptyString;
-      $scope.exportResult = emptyString
       $scope.$apply();
     });
-  }
+  };
+
+  $scope.resetPage = function () {
+    $scope.init();
+    changeAlert('Page reset.', 'alert-danger');
+    showAlert();
+  };
+
+  $(document).ready(() => {
+    $('.close').click(hideAlerts);
+  });
 }
 
 Lab5Controller.$inject = ['$scope', '$http'];
