@@ -186,5 +186,6 @@ function getTweets(accessToken, query, tweetNum) {
 }
 
 server.listen(port, () => {
+  Tweet.remove().exec();
 	console.log('lab7 server listening on port ' + port);
 });

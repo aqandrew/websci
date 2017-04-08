@@ -2,18 +2,23 @@ angular.module('lab5', [])
   .controller('Lab5Controller', Lab5Controller);
 
 function Lab5Controller($scope, $http) {
-  $scope.appName = 'Lab 7';
-  $scope.appDescription = 'node.js, MongoDB, and Twitter API';
   const emptyString = '';
   const tweetNumDefault = 5;
-  $scope.query = emptyString;
-  $scope.tweetNum = tweetNumDefault;
-  $scope.formats = ['JSON', 'CSV', 'XML'];
-  $scope.loadResult = emptyString;
-  $scope.exportResult = emptyString;
-  $scope.tweets = [];
-  $scope.tweetString = emptyString;
-  $scope.formChanged = false;
+  
+  $scope.init = function () {
+    $scope.appName = 'Lab 7';
+    $scope.appDescription = 'node.js, MongoDB, and Twitter API';
+    $scope.query = emptyString;
+    $scope.tweetNum = tweetNumDefault;
+    $scope.formats = ['JSON', 'CSV', 'XML'];
+    $scope.loadResult = emptyString;
+    $scope.exportResult = emptyString;
+    $scope.tweets = [];
+    $scope.tweetString = emptyString;
+    $scope.formChanged = false;
+  }
+
+  $scope.init();
 
   $scope.$watchGroup(['query', 'tweetNum'], (newValues, oldValues) => {
     if (newValues[0] || (newValues[1] != undefined && newValues[1] != tweetNumDefault)) {
@@ -59,11 +64,6 @@ function Lab5Controller($scope, $http) {
       $scope.exportResult = emptyString
       $scope.$apply();
     });
-  }
-
-  $scope.resetPage = function() {
-    $scope.formChanged = false;
-    // TODO reset MongoDB
   }
 }
 
