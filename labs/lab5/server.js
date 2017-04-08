@@ -10,6 +10,9 @@ const fs = require('fs');
 const https = require('https');
 const request = require('request');
 const csvjson = require('csvjson');
+const mongoose = require('mongoose');
+const dbName = 'lab7';
+const db = mongoose.connect('mongodb://localhost/' + dbName);
 
 const port = 3000;
 const consumerKey = 'y4Ops0GFlV7nr2667A01Y5ljH';
@@ -26,7 +29,7 @@ const coordinateNe = {
 var tweets = [];
 
 // Dynamically create fields for tweet JSON structure
-var tweetSchema = new Schema({}, { strict: false });
+var tweetSchema = new mongoose.Schema({}, { strict: false });
 var Tweet = mongoose.model('Tweet', tweetSchema);
 
 // Set root folder
@@ -42,14 +45,15 @@ app.post('/getTweets', (req, res) => {
   let query = req.body.query;
   let tweetNum = req.body.tweetNum;
 
-  authorizeApp(query, tweetNum).then(fulfilledVal => {
-    // console.log(fulfilledVal);
+  authorizeApp(query, tweetNum, getTweets).then(fulfilledVal => {
+    console.log(fulfilledVal);
+  }, rejectedVal => {
+    console.log(rejectedVal);
+  }).then(getTweetsResult => {
     res.json({
       message: loadMessage(tweetNum, query),
       tweets: tweets
     });
-  }, rejectedVal => {
-    console.log(rejectedVal);
   });
 });
 
@@ -86,7 +90,9 @@ function loadMessage(tweetNum, query) {
   return 'Found ' + tweetNum + ' tweet(s) related to "' + query + '".'
 }
 
-function authorizeApp(query, tweetNum) {
+function authorizeApp(query, tweetNum, callback) {
+  let accessToken = '';
+
   // Get application OAuth bearer token
   let bearerTokenCredentials = consumerKey + ':' + consumerSecret;
   let encodedCredentials = new Buffer(bearerTokenCredentials).toString('base64');
@@ -108,9 +114,9 @@ function authorizeApp(query, tweetNum) {
 
     res.on('data', (chunk) => {
       // console.log(`BODY: ${chunk}`);
-      let accessToken = JSON.parse(chunk).access_token;
+      accessToken = JSON.parse(chunk).access_token;
       console.log('Received access token: ' + accessToken);
-      getTweets(accessToken, query, tweetNum);
+      callback(accessToken, query, tweetNum);
     });
 
     res.on('end', () => {
@@ -124,16 +130,13 @@ function authorizeApp(query, tweetNum) {
   authRequest.end();
 
   return new Promise((resolve, reject) => {
-    if (tweets.length != 0) {
-      resolve(tweets)
-    }
-    else {
-      reject(new Error('tweets array is empty!'));
-    }
+    resolve(tweets);
   });
 }
 
 function getTweets(accessToken, query, tweetNum) {
+  console.log('\tgetTweets got called with accessToken' + accessToken);
+
   let tweetSearchOptions = {
     count: tweetNum
   };
@@ -157,8 +160,11 @@ function getTweets(accessToken, query, tweetNum) {
     json: true,
     qs: tweetSearchOptions
   }, (e, r, b) => {
-    // TODO make Mongoose calls to construct DB
     tweets = b.statuses;
+
+    // First, clear the Tweets collection.
+    Tweet.remove({});
+    Tweet.insertMany(tweets);
   });
 }
 
