@@ -4,9 +4,11 @@
 https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watchGroup
 http://mongoosejs.com/docs/guide.html#strict
 http://stackoverflow.com/questions/15670067/mongoose-not-removing-objects-from-collections
+http://stackoverflow.com/questions/20858299/model-find-toarray-claiming-to-not-have-toarray-method
 
 ## Observations
 See Lab 6 observations.
+I liked both this and the previous lab for teaching us to manage technical debt, i.e. teaching us not to screw our future selves over by making hacky shortcuts.
 
 ## Questions
 

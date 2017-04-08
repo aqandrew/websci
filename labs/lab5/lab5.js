@@ -41,7 +41,6 @@ function Lab5Controller($scope, $http) {
   });
 
   $scope.exportTweets = function() {
-    // TODO export from MongoDB
     let format = $('#export-format').val();
 
     $.post('/exportTweets', format, response => {

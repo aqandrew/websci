@@ -10,6 +10,7 @@ const fs = require('fs');
 const https = require('https');
 const request = require('request');
 const csvjson = require('csvjson');
+const jsonxml = require('jsontoxml');
 const mongoose = require('mongoose');
 const dbName = 'lab7';
 const db = mongoose.connect('mongodb://localhost/' + dbName);
@@ -70,8 +71,7 @@ app.post('/exportTweets', (req, res) => {
     delimiter: ',',
     wrap: false
   };
-  // TODO account for XML
-  let writeData = format == 'JSON' ? JSON.stringify(tweets, null, 2) : csvjson.toCSV(tweets, csvOptions);
+  let writeData = formatWriteData(format, csvOptions);
   let newOutputFilename = outputFilename + '.' + format.toLowerCase();
 
   let fileExists = fs.existsSync(newOutputFilename);
@@ -87,6 +87,17 @@ app.post('/exportTweets', (req, res) => {
 
   res.send(wroteMessage);
 });
+
+function formatWriteData(format, csvOptions) {
+  switch (format) {
+    case 'JSON':
+      return JSON.stringify(tweets, null, 2);
+    case 'CSV':
+      return csvjson.toCSV(tweets, csvOptions);
+    case 'XML':
+      return jsonxml(tweets);
+  }
+}
 
 function loadMessage(tweetNum, query) {
   if (!query) {
