@@ -9,7 +9,7 @@ http://stackoverflow.com/questions/20858299/model-find-toarray-claiming-to-not-h
 ## Observations
 See Lab 6 observations.
 I liked both this and the previous lab for teaching us to manage technical debt, i.e. teaching us not to screw our future selves over by making hacky shortcuts.
-My Bootstrap alert timeout assumes around 2 seconds in between each button click.
+My Bootstrap alert timeout assumes around 2.5 seconds in between each button click.
 
 ## Questions
 

@@ -4,14 +4,14 @@ angular.module('lab5', [])
 function Lab5Controller($scope, $http) {
   const emptyString = '';
   const tweetNumDefault = 5;
-  const alertTimeout = 2000;
+  const alertTimeout = 2500;
   const alertClasses = 'alert collapse';
 
   let setAlertTimeout = () => {
-    setTimeout(hideAlerts, alertTimeout);
+    setTimeout(hideAlert, alertTimeout);
   }
 
-  let hideAlerts = () => {
+  let hideAlert = () => {
     $('.alert').hide('fade');
   };
 
@@ -36,7 +36,7 @@ function Lab5Controller($scope, $http) {
     $scope.tweets = [];
     $scope.tweetString = emptyString;
     $scope.formChanged = false;
-    hideAlerts();
+    hideAlert();
   }
 
   $scope.init();
@@ -88,10 +88,6 @@ function Lab5Controller($scope, $http) {
     changeAlert('Page reset.', 'alert-danger');
     showAlert();
   };
-
-  $(document).ready(() => {
-    $('.close').click(hideAlerts);
-  });
 }
 
 Lab5Controller.$inject = ['$scope', '$http'];

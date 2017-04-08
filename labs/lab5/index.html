@@ -22,11 +22,16 @@
 
     .alert {
       margin-top: 20px;
+      position: fixed;
     }
   </style>
 </head>
 <body ng-controller="Lab5Controller">
   <div class="container">
+    <div class="alert collapse" role="alert">
+      <span id="alert-text">foo</span>
+    </div>
+
     <h1>{{ appName }} - {{ appDescription }}</h1>
 
     <form method="post" action="getTweets">
@@ -76,15 +81,6 @@
       <div class="col-md-12">
         <button ng-click="exportTweets()" ng-disabled="tweets.length == 0" class="btn btn-success" type="button">Export</button>
         <button ng-click="resetPage()" ng-disabled="!formChanged" class="btn btn-danger">Reset page</button>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="alert collapse" role="alert">
-        <button type="button" class="close" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <span id="alert-text">foo</span>
       </div>
     </div>
   </div>
