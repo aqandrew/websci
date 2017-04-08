@@ -163,7 +163,7 @@ function getTweets(accessToken, query, tweetNum) {
     tweets = b.statuses;
 
     // First, clear the Tweets collection.
-    Tweet.remove({});
+    Tweet.remove().exec();
     Tweet.insertMany(tweets);
   });
 }
