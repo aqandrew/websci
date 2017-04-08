@@ -47,13 +47,19 @@ app.post('/getTweets', (req, res) => {
 
   authorizeApp(query, tweetNum, getTweets).then(fulfilledVal => {
     console.log(fulfilledVal);
+
+    res.json({
+      message: loadMessage(tweetNum, query)
+    });
   }, rejectedVal => {
     console.log(rejectedVal);
-  }).then(getTweetsResult => {
-    res.json({
-      message: loadMessage(tweetNum, query),
-      tweets: tweets
-    });
+  });
+});
+
+app.get('/displayTweets', (req, res) => {
+  let query = Tweet.find();
+  query.exec((err, docs) => {
+    res.send(docs);
   });
 });
 

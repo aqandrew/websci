@@ -11,7 +11,7 @@ function Lab5Controller($scope, $http) {
   $scope.formats = ['JSON', 'CSV', 'XML'];
   $scope.loadResult = emptyString;
   $scope.exportResult = emptyString;
-  $scope.tweets = []; // TODO build MongoDB of tweets instead of this
+  $scope.tweets = [];
   $scope.tweetString = emptyString;
   $scope.formChanged = false;
 
@@ -35,9 +35,7 @@ function Lab5Controller($scope, $http) {
     $.post('/getTweets', postData, response => {
       console.log(response);
       $scope.loadResult = response.message;
-      $scope.exportResult = '';
-      $scope.tweets = response.tweets;
-      $scope.tweetString = JSON.stringify($scope.tweets, null, 4);
+      $scope.exportResult = emptyString;
       $scope.$apply();
     });
   });
@@ -48,17 +46,23 @@ function Lab5Controller($scope, $http) {
 
     $.post('/exportTweets', format, response => {
       $scope.exportResult = response;
-      $scope.loadResult = '';
+      $scope.loadResult = emptyString;
       $scope.$apply();
     });
   };
 
   $scope.displayTweets = function() {
-    alert('TODO display tweets');
+    $.get('/displayTweets', data => {
+      console.log(data);
+      $scope.tweets = data;
+      $scope.tweetString = JSON.stringify($scope.tweets, null, 4);
+      $scope.loadResult = emptyString;
+      $scope.exportResult = emptyString
+      $scope.$apply();
+    });
   }
 
   $scope.resetPage = function() {
-    alert('TODO reset page');
     $scope.formChanged = false;
     // TODO reset MongoDB
   }

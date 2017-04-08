@@ -3,6 +3,7 @@
 ## References
 https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watchGroup
 http://mongoosejs.com/docs/guide.html#strict
+http://stackoverflow.com/questions/15670067/mongoose-not-removing-objects-from-collections
 
 ## Observations
 See Lab 6 observations.
