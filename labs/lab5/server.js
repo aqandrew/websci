@@ -25,6 +25,10 @@ const coordinateNe = {
 };
 var tweets = [];
 
+// Dynamically create fields for tweet JSON structure
+var tweetSchema = new Schema({}, { strict: false });
+var Tweet = mongoose.model('Tweet', tweetSchema);
+
 // Set root folder
 app.use(express.static(__dirname));
 
@@ -56,6 +60,7 @@ app.post('/exportTweets', (req, res) => {
     delimiter: ',',
     wrap: false
   };
+  // TODO account for XML
   let writeData = format == 'JSON' ? JSON.stringify(tweets, null, 2) : csvjson.toCSV(tweets, csvOptions);
   let newOutputFilename = outputFilename + '.' + format.toLowerCase();
 
@@ -152,10 +157,11 @@ function getTweets(accessToken, query, tweetNum) {
     json: true,
     qs: tweetSearchOptions
   }, (e, r, b) => {
+    // TODO make Mongoose calls to construct DB
     tweets = b.statuses;
   });
 }
 
 server.listen(port, () => {
-	console.log('lab5 server listening on port ' + port);
+	console.log('lab7 server listening on port ' + port);
 });

@@ -2,8 +2,10 @@
 
 ## References
 https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watchGroup
+http://mongoosejs.com/docs/guide.html#strict
 
 ## Observations
+See Lab 6 observations.
 
 ## Questions
 

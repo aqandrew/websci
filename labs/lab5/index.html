@@ -34,7 +34,7 @@
           <div class="input-group">
             <input type="text" ng-model="query" placeholder="Search for tweets" name="query" class="form-control">
             <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">Load</button>
+              <button class="btn btn-primary" type="submit">Build tweet database</button>
             </span>
           </div>
 
@@ -53,9 +53,10 @@
     <div class="row">
       <div class="col-md-12">
         <h2>Tweets</h2>
+        <!-- TODO additional styling -->
         <pre>{{ (tweets.length != 0) ? tweetString : 'No tweets to show.' }}</pre>
         <div class="form-group">
-          <button ng-click="displayTweets()" class="btn btn-primary">Display tweets</button>
+          <button ng-click="displayTweets()" class="btn btn-primary">Read tweets</button>
         </div>
       </div>
     </div>

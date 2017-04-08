@@ -60,6 +60,7 @@ function Lab5Controller($scope, $http) {
   $scope.resetPage = function() {
     alert('TODO reset page');
     $scope.formChanged = false;
+    // TODO reset MongoDB
   }
 }
 
