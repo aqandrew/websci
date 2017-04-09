@@ -41,14 +41,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
 
 app.post('/getTweets', (req, res) => {
-  // console.log('getTweets request: ' + JSON.stringify(req.body));
-
   let query = req.body.query;
   let tweetNum = req.body.tweetNum;
 
   authorizeApp(query, tweetNum, getTweets).then(fulfilledVal => {
-    console.log(fulfilledVal);
-
     res.json({
       message: loadMessage(tweetNum, query)
     });
@@ -57,15 +53,24 @@ app.post('/getTweets', (req, res) => {
   });
 });
 
-app.get('/displayTweets', (req, res) => {
+app.post('/displayTweets', (req, res) => {
+  let format = Object.getOwnPropertyNames(req.body)[0];
+  let csvOptions = {
+    delimiter: ',',
+    wrap: false
+  };
+  let writeData = formatWriteData(format, csvOptions);
+
   let query = Tweet.find();
   query.exec((err, docs) => {
-    res.send(docs);
+    res.json({
+      'docs': docs,
+      'formatted': writeData
+    });
   });
 });
 
 app.post('/exportTweets', (req, res) => {
-  console.log('exportTweets request: ' + JSON.stringify(req.body));
   let format = Object.getOwnPropertyNames(req.body)[0];
   let csvOptions = {
     delimiter: ',',
@@ -86,6 +91,10 @@ app.post('/exportTweets', (req, res) => {
     'Overwrote ' + newOutputFilename + ' with ' + tweets.length + ' tweet(s).';
 
   res.send(wroteMessage);
+});
+
+app.get('/clearTweets', (req, res) => {
+  Tweet.remove().exec();
 });
 
 function formatWriteData(format, csvOptions) {
@@ -130,7 +139,6 @@ function authorizeApp(query, tweetNum, callback) {
     res.setEncoding('utf8');
 
     res.on('data', (chunk) => {
-      // console.log(`BODY: ${chunk}`);
       accessToken = JSON.parse(chunk).access_token;
       console.log('Received access token: ' + accessToken);
       callback(accessToken, query, tweetNum);
@@ -152,8 +160,6 @@ function authorizeApp(query, tweetNum, callback) {
 }
 
 function getTweets(accessToken, query, tweetNum) {
-  console.log('\tgetTweets got called with accessToken' + accessToken);
-
   let tweetSearchOptions = {
     count: tweetNum
   };

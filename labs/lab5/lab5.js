@@ -27,16 +27,22 @@ function Lab5Controller($scope, $http) {
       .addClass(alertClass);
   };
 
+  let clearTweets = function () {
+    $.get('/clearTweets');
+  };
+
   $scope.init = function () {
     $scope.appName = 'Lab 7';
     $scope.appDescription = 'node.js, MongoDB, and Twitter API';
     $scope.query = emptyString;
     $scope.tweetNum = tweetNumDefault;
     $scope.formats = ['JSON', 'CSV', 'XML'];
+    $scope.format = $scope.formats[0];
     $scope.tweets = [];
     $scope.tweetString = emptyString;
     $scope.formChanged = false;
     hideAlert();
+    clearTweets();
   }
 
   $scope.init();
@@ -75,10 +81,14 @@ function Lab5Controller($scope, $http) {
   };
 
   $scope.displayTweets = function() {
-    $.get('/displayTweets', data => {
+    console.log('displayTweets called!');
+
+    let format = $('#export-format').val();
+
+    $.post('/displayTweets', format, data => {
       console.log(data);
-      $scope.tweets = data;
-      $scope.tweetString = JSON.stringify($scope.tweets, null, 4);
+      $scope.tweets = data.docs;
+      $scope.tweetString = data.formatted;
       $scope.$apply();
     });
   };

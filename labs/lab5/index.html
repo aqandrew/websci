@@ -73,7 +73,7 @@
         <label for="export-format">
           Format
         </label>
-        <select name="export-format" id="export-format" class="form-control">
+        <select ng-model="format" ng-change="displayTweets()" name="export-format" id="export-format" class="form-control">
           <option ng-repeat="format in formats" value="{{ format }}">{{ format }}</option>
         </select>
       </div>
