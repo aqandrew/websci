@@ -6,12 +6,9 @@ from bs4 import BeautifulSoup
 import os
 import csv
 
-url = 'http://en.spongepedia.org/index.php?title=Episode_Transcripts/Season_2'
-baseurl = 'http://en.spongepedia.org'
+url = 'http://spongebob.wikia.com/wiki/List_of_transcripts/season_2'
+baseurl = 'http://spongebob.wikia.com/'
 csv_name = 'spongebob_transcript_season_2.csv'
-# These transcript articles lack a DOM element corresponding to '#id'.
-no_dialogue_id = ["Grandma's Kisses", 'Graveyard Shift', 'Squid on Strike']
-big_paragraph = ['Graveyard Shift', 'Krusty Love']
 
 
 def scrape_transcripts():
@@ -26,10 +23,15 @@ def scrape_transcripts():
     soup = BeautifulSoup(html, 'html.parser')
 
     # Iterate through Season 2's episode transcripts
-    for episode in soup.select('#mw-content-text > table td a'):
+    for row_num, episode in enumerate(soup.select('tr')):
         # print episode.prettify()
-        title = episode.string
-        transcript_url = baseurl + episode['href']
+        # Skip the header row.
+        if row_num == 0:
+            continue
+
+        title = episode.select('td:nth-of-type(2) a')[0]['title']
+        transcript_url = baseurl + episode.select('td:nth-of-type(3) a')[0]['href']
+        print title#, '\n\t', transcript_url
         transcript_u = urlopen(transcript_url)
         try:
             transcript_html = transcript_u.read().decode('utf-8')
@@ -39,19 +41,13 @@ def scrape_transcripts():
         episode_soup = BeautifulSoup(transcript_html, 'html.parser')
 
         # Iterate through each line in each transcript
-        crucial_id = 'Dialogue' if title not in no_dialogue_id else 'Characters'
-        dialogue = episode_soup.find(id=crucial_id).parent
-        lines = [line.text.replace('\n', '') for line in dialogue.find_next_siblings('p')]
+        transcript = episode_soup.select('#mw-content-text ul li')
 
-        for line in lines:
-            line_split = line.split(':')
+        for line in transcript:
+            line_split = line.text.strip().split(':')
             speaker = line_split[0]
-            text = ''.join(line_split[1:]).encode('ascii', 'ignore') # ignore foreign Unicode characters
-
-            if title not in big_paragraph:
-                print '\t', speaker, '\t', text
-
-        # transcript_array.append([title, line.string])
+            text = ''.join(line_split[1:])
+            transcript_array.append([title, speaker, text])
 
     return transcript_array
 
@@ -63,7 +59,10 @@ def write_transcripts(transcript_array):
         csv_writer.writerow(header_row)
 
         for line in transcript_array:
-            csv_writer.writerow(line)
+            try:
+                csv_writer.writerow(line)
+            except UnicodeEncodeError:
+                continue # Sailor Mouth intro aside
 
 
 def main():
