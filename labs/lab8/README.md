@@ -31,8 +31,8 @@
   See answer 1.
 
   To make the transcript data easier to work with, I learned a little bit about
-  regular expressions, so that I could remove asides and punctuation (except)
-  apostrophes.
+  regular expressions, so that I could remove asides and punctuation (except
+  apostrophes and hyphens.
 
 ## References
 
@@ -41,7 +41,11 @@ https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 http://stackoverflow.com/questions/9351522/python-how-to-remove-text-within-round-brackets
 http://stackoverflow.com/questions/1276764/stripping-everything-but-alphanumeric-chars-from-a-string-in-python
 http://stackoverflow.com/questions/12985456/replace-all-non-alphanumeric-characters-in-a-string
+http://stackoverflow.com/questions/1546226/a-simple-way-to-remove-multiple-spaces-in-a-string-in-python
 http://www.cyclismo.org/tutorial/R/input.html#reading-a-csv-file
+http://stackoverflow.com/questions/11927121/r-convert-string-to-vector-tokenize-using
+https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf
 
 ## Observations
 

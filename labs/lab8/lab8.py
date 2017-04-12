@@ -16,7 +16,7 @@ pattern_aside = '\[[^\]]+\]'
 pattern_spaces = ' +'
 
 
-def scrape_transcripts(no_punctuation=True, no_asides=True):
+def scrape_transcripts(no_punctuation=True, no_asides=True, tokenize=True):
     transcript_array = []
 
     u = urlopen(url)
@@ -69,7 +69,11 @@ def scrape_transcripts(no_punctuation=True, no_asides=True):
             # Convert multiple spaces to one
             text = re.sub(pattern_spaces, ' ', text).strip()
 
-            transcript_array.append([title, speaker, text])
+            if tokenize:
+                for word in text.split():
+                    transcript_array.append([title, speaker, word])
+            else:
+                transcript_array.append([title, speaker, text])
 
     return transcript_array
 
