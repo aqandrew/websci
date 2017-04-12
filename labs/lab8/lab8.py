@@ -13,6 +13,7 @@ baseurl = 'http://spongebob.wikia.com/'
 csv_name = 'spongebob_transcript_season_2.csv'
 pattern_word = "[^0-9a-z '-]+"
 pattern_aside = '\[[^\]]+\]'
+pattern_spaces = ' +'
 
 
 def scrape_transcripts(no_punctuation=True, no_asides=True):
@@ -51,7 +52,7 @@ def scrape_transcripts(no_punctuation=True, no_asides=True):
             line_text = line.text.strip()
             line_split = line_text.split(':')
             speaker = line_split[0] if ':' in line_text else ''
-            text = ''.join(line_split[1:]).strip().lower()
+            text = ''.join(line_split[1:]).lower()
 
             if not (speaker or text):
                 continue
@@ -64,6 +65,9 @@ def scrape_transcripts(no_punctuation=True, no_asides=True):
 
             if no_punctuation:
                 text = re.sub(pattern_word, ' ', text)
+
+            # Convert multiple spaces to one
+            text = re.sub(pattern_spaces, ' ', text).strip()
 
             transcript_array.append([title, speaker, text])
 

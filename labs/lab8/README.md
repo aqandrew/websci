@@ -41,6 +41,7 @@ https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 http://stackoverflow.com/questions/9351522/python-how-to-remove-text-within-round-brackets
 http://stackoverflow.com/questions/1276764/stripping-everything-but-alphanumeric-chars-from-a-string-in-python
 http://stackoverflow.com/questions/12985456/replace-all-non-alphanumeric-characters-in-a-string
+http://www.cyclismo.org/tutorial/R/input.html#reading-a-csv-file
 
 ## Observations
 
