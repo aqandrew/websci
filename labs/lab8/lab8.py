@@ -5,13 +5,17 @@ from urlparse import urljoin
 from bs4 import BeautifulSoup
 import os
 import csv
+import re, string
+
 
 url = 'http://spongebob.wikia.com/wiki/List_of_transcripts/season_2'
 baseurl = 'http://spongebob.wikia.com/'
 csv_name = 'spongebob_transcript_season_2.csv'
+pattern_word = "[^0-9a-z '-]+"
+pattern_aside = '\[[^\]]+\]'
 
 
-def scrape_transcripts():
+def scrape_transcripts(no_punctuation=True, no_asides=True):
     transcript_array = []
 
     u = urlopen(url)
@@ -44,9 +48,23 @@ def scrape_transcripts():
         transcript = episode_soup.select('#mw-content-text ul li')
 
         for line in transcript:
-            line_split = line.text.strip().split(':')
-            speaker = line_split[0]
-            text = ''.join(line_split[1:])
+            line_text = line.text.strip()
+            line_split = line_text.split(':')
+            speaker = line_split[0] if ':' in line_text else ''
+            text = ''.join(line_split[1:]).strip().lower()
+
+            if not (speaker or text):
+                continue
+
+            if no_asides:
+                if not speaker:
+                    continue
+
+                text = re.sub(pattern_aside, '', text)
+
+            if no_punctuation:
+                text = re.sub(pattern_word, ' ', text)
+
             transcript_array.append([title, speaker, text])
 
     return transcript_array
