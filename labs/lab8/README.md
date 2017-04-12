@@ -46,6 +46,7 @@ http://www.cyclismo.org/tutorial/R/input.html#reading-a-csv-file
 http://stackoverflow.com/questions/11927121/r-convert-string-to-vector-tokenize-using
 https://cran.r-project.org/doc/contrib/Short-refcard.pdf
 https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf
+http://tidytextmining.com/tidytext.html
 
 ## Observations
 

@@ -26,6 +26,7 @@ def scrape_transcripts(no_punctuation=True, no_asides=True, tokenize=True):
         u.close()
 
     soup = BeautifulSoup(html, 'html.parser')
+    line_count = 1 # assume at least one line spoken
 
     # Iterate through Season 2's episode transcripts
     for row_num, episode in enumerate(soup.select('tr')):
@@ -71,9 +72,11 @@ def scrape_transcripts(no_punctuation=True, no_asides=True, tokenize=True):
 
             if tokenize:
                 for word in text.split():
-                    transcript_array.append([title, speaker, word])
+                    transcript_array.append([title, line_count, speaker, word])
             else:
-                transcript_array.append([title, speaker, text])
+                transcript_array.append([title, line_count, speaker, text])
+
+            line_count += 1
 
     return transcript_array
 
@@ -81,7 +84,7 @@ def scrape_transcripts(no_punctuation=True, no_asides=True, tokenize=True):
 def write_transcripts(transcript_array):
     with open(csv_name, 'w') as csv_file:
         csv_writer = csv.writer(csv_file)
-        header_row = ['episode', 'speaker', 'line']
+        header_row = ['episode', 'line_num', 'speaker', 'line']
         csv_writer.writerow(header_row)
 
         for line in transcript_array:

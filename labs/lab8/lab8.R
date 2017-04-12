@@ -1,3 +1,4 @@
+library(dplyr)
 library(igraph)
 
 # Load the data
