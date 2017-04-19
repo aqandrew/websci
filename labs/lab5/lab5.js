@@ -47,8 +47,9 @@ function Lab5Controller($scope, $http) {
 
   $scope.init();
 
-  $scope.$watchGroup(['query', 'tweetNum'], (newValues, oldValues) => {
-    if (newValues[0] || (newValues[1] != undefined && newValues[1] != tweetNumDefault)) {
+  $scope.$watchGroup(['query', 'tweetNum', 'format'], (newValues, oldValues) => {
+    if (newValues[0] || (newValues[1] != undefined && newValues[1] != tweetNumDefault) ||
+        newValues[2] != $scope.formats[0]) {
       $scope.formChanged = true;
     }
     else {
