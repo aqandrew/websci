@@ -33,7 +33,7 @@ function Lab5Controller($scope, $http) {
 
   $scope.init = function () {
     $scope.appName = 'Lab 9';
-    $scope.appDescription = 'Putting It All Together';
+    $scope.appDescription = 'node.js, MongoDB, and Twitter API';
     $scope.query = emptyString;
     $scope.tweetNum = tweetNumDefault;
     $scope.formats = ['JSON', 'CSV', 'XML'];
