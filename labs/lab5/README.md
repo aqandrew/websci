@@ -1,3 +1,25 @@
+# Lab 9
+
+## How to install
+
+1. Install NodeJS.
+2. Open a terminal at the project directory.
+3. `npm install`
+4. `npm start`
+5. Navigate to localhost:3000.
+
+## References
+
+https://bootswatch.com/darkly/
+
+## Observations
+
+
+
+## Questions
+
+
+
 # Lab 7
 
 ## References

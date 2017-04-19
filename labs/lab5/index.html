@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WebSci Lab 7</title>
+  <title>WebSci Lab 9</title>
 
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <script src="lab5.js"></script>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="bootstrap.min.css">
 
   <!-- animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
@@ -23,6 +23,14 @@
     .alert {
       margin-top: 20px;
       position: fixed;
+    }
+
+    .modal-title {
+      display: inline;
+    }
+
+    #export-buttons {
+      text-align: center;
     }
   </style>
 </head>
@@ -36,7 +44,11 @@
 
     <form method="post" action="getTweets">
       <div class="row">
-        <div class="form-group col-md-4">
+        <div class="col-md-12">
+          <p>Enter a search term below. If no query is entered, tweets will be pulled from RPI's vicinity.</p>
+        </div>
+
+        <div class="form-group col-md-6">
           <label for="query">
             Query
           </label>
@@ -48,7 +60,7 @@
           </div>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
           <label for="tweet-num">
             Number of tweets
           </label>
@@ -69,7 +81,7 @@
     </div>
 
     <div class="row">
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-4 col-md-offset-4">
         <label for="export-format">
           Format
         </label>
@@ -78,9 +90,32 @@
         </select>
       </div>
 
-      <div class="col-md-12">
+      <div class="col-md-12" id="export-buttons">
         <button ng-click="exportTweets()" ng-disabled="tweets.length == 0" class="btn btn-success" type="button">Export</button>
         <button ng-click="resetPage()" ng-disabled="!formChanged" class="btn btn-danger">Reset page</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="landing-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Welcome to WebSci Lab 9</h4>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Search for tweets to be loaded into MongoDB, then export them into JSON, CSV, or XML format.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-dismiss="modal">
+            Cool
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -88,5 +123,14 @@
 
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+  $(document).ready(() => {
+    $('#landing-modal').modal('show');
+  });
+</script>
 
 </html>
