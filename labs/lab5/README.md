@@ -11,14 +11,8 @@
 ## References
 
 https://v4-alpha.getbootstrap.com/components/modal/
+http://stackoverflow.com/questions/18153234/center-a-column-using-twitter-bootstrap-3
 https://bootswatch.com/darkly/
-
-## Observations
-
-
-
-## Questions
-
 
 
 # Lab 7
@@ -37,8 +31,6 @@ My Bootstrap alert timeout assumes around 2.5 seconds in between each button cli
 
 My 'additional styling' on tweets is changing the displayed format every time the dropdown changes.
 
-## Questions
-
 
 # Lab 6
 
@@ -52,8 +44,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 ## Observations
 I'm glad we're allowed to reuse our Lab 5 code for this lab!
 We should totally cover Promises in a lecture/lab.
-
-## Questions
 
 
 # Lab 5
