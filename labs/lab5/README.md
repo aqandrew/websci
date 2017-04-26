@@ -1,3 +1,11 @@
+# Lab 10
+
+## References
+
+https://v4-alpha.getbootstrap.com/components/carousel/
+http://stackoverflow.com/questions/30382423/my-bootstrap-carousel-code-doesnt-work
+
+
 # Lab 9
 
 ## How to install
