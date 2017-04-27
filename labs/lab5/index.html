@@ -29,6 +29,7 @@
     .alert {
       margin-top: 20px;
       position: fixed;
+      z-index: 10000;
     }
 
     .modal-title {
@@ -42,15 +43,22 @@
     .tweet-vis {
       width: 600px;
       height: 600px;
-      /*background-color: cyan;*/
+    }
+
+    text {
+      font-size: 10px;
     }
   </style>
 </head>
 <body ng-controller="Lab5Controller">
   <div class="container">
-    <div class="alert collapse" role="alert">
-      <span id="alert-text">foo</span>
-    </div>
+    <!-- <div class="row"> -->
+      <div class="col-md-12">
+        <div class="alert collapse" role="alert">
+          <span id="alert-text"></span>
+        </div>
+      </div>
+    <!-- </div> -->
 
     <div class="row">
       <div class="col-md-8">
@@ -175,7 +183,7 @@
             <ol class="carousel-indicators">
               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              <!-- <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
             </ol>
 
             <!-- Wrapper for slides -->
@@ -191,16 +199,16 @@
                 <svg id="vis-2" class="tweet-vis"></svg>
                 <div class="carousel-caption d-none d-md-block">
                   <h3>Mosaic</h3>
-                  <p>Profile color of user who made each tweet</p>
+                  <p>Profile link color of user who made each tweet</p>
                 </div>
               </div>
-              <div class="item">
+              <!-- <div class="item">
                 <svg id="vis-3" class="tweet-vis"></svg>
                 <div class="carousel-caption d-none d-md-block">
                   <h3>Scatter Plot</h3>
                   <p>Number of hashtags vs. number of retweets</p>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <!-- Controls -->

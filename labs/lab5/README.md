@@ -8,7 +8,12 @@ https://bl.ocks.org/mbostock/4063269
 https://bl.ocks.org/mbostock/4060606
 https://bl.ocks.org/mbostock/3883245
 https://github.com/d3/d3-selection
+https://www.dashingd3js.com/svg-basic-shapes-and-d3js
 http://stackoverflow.com/questions/19215586/get-an-specific-value-of-css-class-using-d3js
+https://jrue.github.io/coding/2014/exercises/basicbubblepackchart/
+https://bl.ocks.org/john-guerra/0d81ccfd24578d5d563c55e785b3b40a
+http://stackoverflow.com/questions/39368919/d3-bubble-chart-bubble-nodes-not-a-function
+https://jsfiddle.net/r24e8xd7/9/
 
 
 # Lab 9

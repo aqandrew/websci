@@ -112,27 +112,90 @@ function Lab5Controller($scope, $http) {
     width = parseInt(getComputedStyle(someSvg).getPropertyValue('width'), 10),
     height = parseInt(getComputedStyle(someSvg).getPropertyValue('height'), 10);
 
+  // https://jsfiddle.net/r24e8xd7/9/
   let loadVis1 = function() {
+  	let svg1 = d3.select("#vis-1"),
+    color = d3.scaleOrdinal(d3.schemeCategory20c),
+    wordCount = {};
 
+  	// Count all the words
+  	$scope.tweets.forEach(tweet => {
+      let words = tweet.text.split(' ').map(word => { return word.toLowerCase(); });
+      words.forEach(word => {
+      	if (!(word in wordCount)) {
+        wordCount[word] = 1;
+      	} else {
+        wordCount[word] += 1;
+      	}
+      });
+  	});
+
+  	wordCount = Object.keys(wordCount).map(key => {
+      return {
+      	word: key,
+      	count: wordCount[key]
+      };
+  	});
+
+    let data = { 'children': wordCount };
+
+  	let bubble = d3.pack(data)
+      .size([width, height])
+      .padding(1.5);
+
+  	let nodes = d3.hierarchy(data).sum(d => {
+      return d.count;
+  	});
+
+  	let node = svg1.selectAll('.node')
+      .data(bubble(nodes).descendants())
+      .enter()
+        .filter(d => {
+        	return !d.children;
+        })
+        .append('g')
+        .attr('class', 'node')
+        .attr('transform', d => {
+        	return 'translate(' + d.x + ',' + d.y + ')';
+        });
+
+  	node.append('title').text(d => {
+      return d.data.word + ': ' + d.data.count;
+  	});
+
+  	node.append('circle')
+      .attr('r', d => {
+      	return d.r;
+      })
+      .style('fill', d => {
+      	return color(d.word);
+      });
+
+  	node.append('text')
+      .attr('dy', '.3em')
+      .style('text-anchor', 'middle')
+      .text(d => {
+      	return d.data.word + ': ' + d.data.count;
+      });
   };
 
   let loadVis2 = function() {
-  	let svg2 = d3.select("#vis-2"),
+  	let svg2 = d3.select('#vis-2'),
       profileColors = $scope.tweets.map(tweet => {
-    		return tweet.user.profile_background_color;
+      return tweet.user.profile_background_color;
     	}),
       smallSquareNum = Math.ceil(Math.sqrt(profileColors.length)),
       smallSquareSize = width / smallSquareNum;
 
   	svg2.selectAll('rect')
-  		.data(profileColors)
-  		.enter()
-  		.append('rect')
-  			.attr('x', (d, index) => { return (index % smallSquareNum) * smallSquareSize; })
-  			.attr('y', (d, index) => { return Math.floor(index / smallSquareNum) * smallSquareSize; })
-  			.attr('width', smallSquareSize)
-  			.attr('height', smallSquareSize)
-  			.attr('fill', (d) => { return '#' + d; });
+    .data(profileColors)
+    .enter()
+    .append('rect')
+    	.attr('x', (d, index) => { return (index % smallSquareNum) * smallSquareSize; })
+    	.attr('y', (d, index) => { return Math.floor(index / smallSquareNum) * smallSquareSize; })
+    	.attr('width', smallSquareSize)
+    	.attr('height', smallSquareSize)
+    	.attr('fill', (d) => { return '#' + d; });
   };
 
   let loadVis3 = function() {
