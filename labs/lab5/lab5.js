@@ -99,6 +99,45 @@ function Lab5Controller($scope, $http) {
     changeAlert('Page reset.', 'alert-danger');
     showAlert();
   };
+
+  // Visualization
+
+  $scope.loadVisualizations = function() {
+    loadVis1();
+    loadVis2();
+    loadVis3();
+  };
+
+  let someSvg = document.querySelector('.tweet-vis'),
+    width = parseInt(getComputedStyle(someSvg).getPropertyValue('width'), 10),
+    height = parseInt(getComputedStyle(someSvg).getPropertyValue('height'), 10);
+
+  let loadVis1 = function() {
+
+  };
+
+  let loadVis2 = function() {
+  	let svg2 = d3.select("#vis-2"),
+      profileColors = $scope.tweets.map(tweet => {
+    		return tweet.user.profile_background_color;
+    	}),
+      smallSquareNum = Math.ceil(Math.sqrt(profileColors.length)),
+      smallSquareSize = width / smallSquareNum;
+
+  	svg2.selectAll('rect')
+  		.data(profileColors)
+  		.enter()
+  		.append('rect')
+  			.attr('x', (d, index) => { return (index % smallSquareNum) * smallSquareSize; })
+  			.attr('y', (d, index) => { return Math.floor(index / smallSquareNum) * smallSquareSize; })
+  			.attr('width', smallSquareSize)
+  			.attr('height', smallSquareSize)
+  			.attr('fill', (d) => { return '#' + d; });
+  };
+
+  let loadVis3 = function() {
+
+  };
 }
 
 Lab5Controller.$inject = ['$scope', '$http'];

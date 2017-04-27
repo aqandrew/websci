@@ -4,6 +4,11 @@
 
 https://v4-alpha.getbootstrap.com/components/carousel/
 http://stackoverflow.com/questions/30382423/my-bootstrap-carousel-code-doesnt-work
+https://bl.ocks.org/mbostock/4063269
+https://bl.ocks.org/mbostock/4060606
+https://bl.ocks.org/mbostock/3883245
+https://github.com/d3/d3-selection
+http://stackoverflow.com/questions/19215586/get-an-specific-value-of-css-class-using-d3js
 
 
 # Lab 9

@@ -10,6 +10,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <script src="lab5.js"></script>
 
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
   <!-- Bootstrap CSS -->
   <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +23,7 @@
   <style>
     pre {
       height: 30vh;
+      overflow: scroll;
     }
 
     .alert {
@@ -37,8 +41,8 @@
 
     .tweet-vis {
       width: 600px;
-      height: 500px;
-      background-color: cyan;
+      height: 600px;
+      /*background-color: cyan;*/
     }
   </style>
 </head>
@@ -48,14 +52,38 @@
       <span id="alert-text">foo</span>
     </div>
 
-    <h1>{{ appName }} - {{ appDescription }}</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <h1>{{ appName }} - {{ appDescription }}</h1>
+        <p>
+          Enter a search term below. If no query is entered, tweets will be pulled from RPI's vicinity.
+        </p>
+      </div>
+      <div class="col-md-4 btn-toolbar">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Controls
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button ng-click="loadVisualizations()" ng-disabled="tweets.length == 0" class="btn btn-lg btn-success" id="visualize-button">
+              Visualize
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button ng-click="resetPage()" ng-disabled="!formChanged" class="btn btn-lg btn-danger">
+              Reset page
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <form method="post" action="getTweets">
       <div class="row">
-        <div class="col-md-12">
-          <p>Enter a search term below. If no query is entered, tweets will be pulled from RPI's vicinity.</p>
-        </div>
-
         <div class="form-group col-md-6">
           <label for="query">
             Query
@@ -106,25 +134,6 @@
           </span>
         </div>
       </div>
-
-      <div class="col-md-6 btn-toolbar">
-        <h3>
-          Controls
-        </h3>
-
-        <div class="row">
-          <div class="col-md-3">
-            <button class="btn btn-lg btn-success" id="visualize-button">
-              Visualize
-            </button>
-          </div>
-          <div class="col-md-3">
-            <button ng-click="resetPage()" ng-disabled="!formChanged" class="btn btn-lg btn-danger">
-              Reset page
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -172,24 +181,24 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
-                <div id="vis-1" class="tweet-vis"></div>
+                <svg id="vis-1" class="tweet-vis"></svg>
                 <div class="carousel-caption d-none d-md-block">
-                  <h3>Visualization 1</h3>
-                  <p>Description?</p>
+                  <h3>Bubble Chart</h3>
+                  <p>Frequency of the data's top 100 words</p>
                 </div>
               </div>
               <div class="item">
-                <div id="vis-1" class="tweet-vis"></div>
+                <svg id="vis-2" class="tweet-vis"></svg>
                 <div class="carousel-caption d-none d-md-block">
-                  <h3>Second Visualization</h3>
-                  <p>Description!</p>
+                  <h3>Mosaic</h3>
+                  <p>Profile color of user who made each tweet</p>
                 </div>
               </div>
               <div class="item">
-                <div id="vis-1" class="tweet-vis"></div>
+                <svg id="vis-3" class="tweet-vis"></svg>
                 <div class="carousel-caption d-none d-md-block">
-                  <h3>THIRD VISUALIZATION</h3>
-                  <p>Description?!</p>
+                  <h3>Scatter Plot</h3>
+                  <p>Number of hashtags vs. number of retweets</p>
                 </div>
               </div>
             </div>
