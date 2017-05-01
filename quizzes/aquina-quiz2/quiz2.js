@@ -37,6 +37,12 @@ function Quiz2Controller($scope, $http) {
       showAlert();
     });
   });
+
+  $scope.displayWeather = () => {
+    $.get('/getWeathers', res => {
+      console.log('got response:', res);
+    });
+  };
 }
 
 $(document).ready(() => {

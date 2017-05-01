@@ -36,12 +36,24 @@ app.post('/addZip', (req, res) => {
   console.log('got zip:', zip);
   console.log('Weather:', Weather);
 
-  Weather.insert({
-    zipcode: zip
+  let query = Weather.insert({
+    'zipcode': zip
   });
 
-  res.json({
-    message: 'Added ZIP code ' + zip
+  query.exec((err, docs) => {
+    res.json({
+      'message': 'Added ZIP code ' + zip
+    });
+  });
+});
+
+app.get('/getWeathers', (req, res) => {
+  let query = Weather.find();
+  query.exec((err, docs) => {
+    res.json({
+      'docs': docs,
+      'message': 'Success! Got weather.'
+    });
   });
 });
 
