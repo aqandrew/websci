@@ -17,9 +17,15 @@ function Quiz2Controller($scope, $http) {
     setAlertTimeout();
   };
 
+  let changeAlert = (text, alertClass) => {
+    $('#alert-text').text(text);
+    $('.alert').removeClass()
+      .addClass(alertClasses)
+      .addClass(alertClass);
+  };
+
   $('form').submit(event => {
     event.preventDefault(); // Prevent page redirect on submit
-    alert('form submitted');
 
     let postData = {
       zip: $scope.zip,
@@ -27,7 +33,7 @@ function Quiz2Controller($scope, $http) {
 
     $.post('/addZip', postData, response => {
       console.log(response);
-      changeAlert(response.message, 'alert-info');
+      changeAlert(response.message, 'alert-success');
       showAlert();
     });
   });

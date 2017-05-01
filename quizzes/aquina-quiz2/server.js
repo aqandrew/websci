@@ -33,7 +33,17 @@ app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bo
 
 app.post('/addZip', (req, res) => {
   let zip = req.body.zip;
-}
+  console.log('got zip:', zip);
+  console.log('Weather:', Weather);
+
+  Weather.insert({
+    zipcode: zip
+  });
+
+  res.json({
+    message: 'Added ZIP code ' + zip
+  });
+});
 
 server.listen(port, () => {
   Weather.remove().exec(); // Start with no weather info
