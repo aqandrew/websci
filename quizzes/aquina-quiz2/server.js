@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 const request = require('request');
+const http = require('http');
 const mongoose = require('mongoose');
 const dbName = 'quiz2';
 const db = mongoose.connect('mongodb://localhost/' + dbName);
@@ -33,16 +34,32 @@ app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bo
 
 app.post('/addZip', (req, res) => {
   let zip = req.body.zip;
+  let temp, locName;
   console.log('got zip:', zip);
   console.log('Weather:', Weather);
 
-  let query = Weather.insert({
-    'zipcode': zip
-  });
+  let currentWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?&APPID=' + apiKey + '&zip=' + zip;
+  http.get(currentWeatherUrl, data => {
+    // console.log('http.get data:', data);
+    // temp = data.main.temp;
+    // locName = data.name;
 
-  query.exec((err, docs) => {
-    res.json({
-      'message': 'Added ZIP code ' + zip
+    let newWeather = new Weather({
+      zipcode: zip//,
+      // locationName: 'string',
+      // temperature: 'number'
+    });
+
+    // let query = Weather.insert({
+    //   'zipcode': zip,
+    //   // 'temperature': temp,
+    //   // 'locationName': locName
+    // });
+
+    newWeather.save((err, docs) => {
+      res.json({
+        'message': 'Added ZIP code ' + zip
+      });
     });
   });
 });

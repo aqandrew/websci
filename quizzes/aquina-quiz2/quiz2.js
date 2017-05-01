@@ -2,6 +2,8 @@ angular.module('quiz2', [])
   .controller('Quiz2Controller', Quiz2Controller);
 
 function Quiz2Controller($scope, $http) {
+  const alertClasses = 'alert collapse';
+  const alertTimeout = 2500;
   $scope.zip = '';
 
   let setAlertTimeout = () => {
@@ -32,7 +34,7 @@ function Quiz2Controller($scope, $http) {
     };
 
     $.post('/addZip', postData, response => {
-      console.log(response);
+      // console.log(response);
       changeAlert(response.message, 'alert-success');
       showAlert();
     });
