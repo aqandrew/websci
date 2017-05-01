@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="quiz2">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>WebSci Quiz 2</title>
+
   <!-- Bootstrap CSS -->
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 </head>
-<body>
+<body ng-controller="Quiz2Controller">
   <div class="container">
     <div class="col-md-12">
       <div class="alert collapse" role="alert">
@@ -27,11 +31,11 @@
       </p>
     </div>
     <div class="row">
-      <form action="">
+      <form method="post" action="addZip">
         <div class="input-group">
-          <input type="number" placeholder="Enter a ZIP code here" name="query" class="form-control">
+          <input ng-model="zip" type="number" placeholder="Enter a ZIP code here" name="zip" class="form-control">
           <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit">Add</button>
+            <button ng-disabled="zip == 0" class="btn btn-primary" type="submit">Add</button>
           </span>
         </div>
       </form>
@@ -42,7 +46,12 @@
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<!-- D3.js -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
 <!-- Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="quiz2.js"></script>
 
 </html>

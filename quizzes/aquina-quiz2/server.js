@@ -31,7 +31,9 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
 
-
+app.post('/addZip', (req, res) => {
+  let zip = req.body.zip;
+}
 
 server.listen(port, () => {
   Weather.remove().exec(); // Start with no weather info
